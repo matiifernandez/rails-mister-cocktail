@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <h1>Add a Dose to <%= @cocktail.name %> </h1>
+  <p>Select an ingredient and specify the amount needed.</p>
+  <hr>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description, placeholder: 'e.g., 6cl, 2 shots, 1 tsp' %>
+    <%= f.association :ingredient, collection: Ingredient.order(:name) %>
+    <%= f.submit "Add dose", class: 'btn btn-success mt-3' %>
+  <% end %>
+
+  <div class="mt-3">
+    <%= link_to "Back to cocktail", cocktails_path(@cocktail) %>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <h1>🍹 Mister Cocktail</h1>
+  <hr>
+  <div class="mb-4">
+    <%= link_to "➕ Create a new cocktail", new_cocktail_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+
+          <% if cocktail.photo.attached? %>
+            <%= image_tag cocktail.photo, class: "card-img-top cocktail-img-fit", alt: cocktail.name %>
+          <% else %>
+            <img src="https://via.placeholder.com/400x200?text=No+Image" class="card-img-top cocktail-img-fit" alt="<%= cocktail.name %>">
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= cocktail.name %></h5>
+
+            <%= link_to "See details", cocktail_path(cocktail), class: "btn btn-outline-info" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

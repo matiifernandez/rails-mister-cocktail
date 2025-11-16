@@ -74,3 +74,9 @@ group :test do
 end
 gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
+
+
+# Custom added
+
+gem 'ostruct'
+gem 'cloudinary', '~> 1.16.0'
